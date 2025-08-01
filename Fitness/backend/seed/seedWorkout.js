@@ -6,7 +6,7 @@ const Workout = require("../model/Workout");
 console.log("Using API Key:", process.env.RAPIDAPI_KEY);
 
 
-mongoose.connect('mongodb://localhost:27017/Workout')
+mongoose.connect(process.env.MONGO_URI)
   .then(() => { console.log("MongoDB connected ✅"); })
   .catch(err => { console.log(err); });
 
