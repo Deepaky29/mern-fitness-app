@@ -4,8 +4,10 @@ import WhatSetsUsApart from "./components/WhatSetsUsApart"
 import ConnectEngageTransform from "./components/ConnectEngageTransform"
 import Navbar from './components/Navbar';
 function App() {
+
   return (
   <>
+
   <Navbar />
 
   <section id="home">

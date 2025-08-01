@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import fit2 from '../assets/OIP (1).jpg';
 import fit3 from '../assets/OIP (2).jpg';
@@ -19,10 +20,14 @@ const WorkoutSection = () => {
     fit7,
   ];
 
+
   useEffect(() => {
+    console.log('ENV URL:', import.meta.env.VITE_API_BASE_URL);
+
     const fetchWorkouts = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/workouts');
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/workouts`);
+
         const data = await res.json();
 
         const abs = data
@@ -44,6 +49,8 @@ const WorkoutSection = () => {
 
     fetchWorkouts();
   }, []);
+
+
 
   const WorkoutGrid = ({ workouts }) => (
     <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
