@@ -1,12 +1,17 @@
-const mongoose = require('mongoose');
 require("dotenv").config();
+const mongoose = require('mongoose');
 const axios = require('axios');
 const Workout = require("../model/Workout");
 
 console.log("Using API Key:", process.env.RAPIDAPI_KEY);
+mongoose.set("debug", true);
 
 
-mongoose.connect(process.env.MONGO_URI)
+console.log("Connecting to:", process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => { console.log("MongoDB connected ✅"); })
   .catch(err => { console.log(err); });
 
